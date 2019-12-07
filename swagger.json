@@ -1,0 +1,100 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "0.0.1",
+    "title": "Greetings Service",
+    "description": "Sandras first microservice",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:3001",
+  "tags": [
+    {
+      "name": "Greetings",
+      "description": "API for personal greetings"
+    }
+  ],
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/hello": {
+      "get": {
+        "operationId": "impossible",
+        "tags": ["Hello World"],
+        "description": "Hello World ",
+        "parameters": [],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "application/json"
+            }
+          }
+        }
+      }
+    },
+    "/greetings/{lang}/{name}": {
+      "parameters": [
+        {
+          "name": "lang",
+          "in": "path",
+          "required": true,
+          "description": "Language of the greetings",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "in": "path",
+          "required": true,
+          "description": "Name of the greeted person",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": ["Greetings"],
+        "summary": "Greet a person in his/her language",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/christmas/{lang}/{name}": {
+      "parameters": [
+        {
+          "name": "lang",
+          "in": "path",
+          "required": true,
+          "description": "Language of the greetings",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "in": "path",
+          "required": true,
+          "description": "Name of the greeted person",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": ["Christmas Greetings"],
+        "summary": "Personal christmas greetings in many languages",
+        "produces": ["text/plain"],
+        "responses": {
+          "200": {
+            "description": "OK",
+
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
